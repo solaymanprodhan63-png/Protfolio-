@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abu Shaid Prodhan | Future Software Engineer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Hind+Siliguri:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --neon-green: #00ff88;
+            --neon-blue: #00f2ff;
+            --bg-dark: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .bengali { font-family: 'Hind Siliguri', sans-serif; }
+
+        /* Animated Background Particles Effect */
+        #bg-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; background: radial-gradient(circle at 50% 50%, #111, #000);
+        }
+
+        /* Glassmorphism Navbar */
+        nav {
+            position: fixed; width: 100%; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px);
+            z-index: 1000; border-bottom: 1px solid var(--glass-border);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--neon-green); letter-spacing: 2px; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 20px;
+        }
+        .profile-wrapper {
+            position: relative; padding: 10px; margin-bottom: 30px;
+        }
+        .profile-img {
+            width: 220px; height: 220px; border-radius: 50%;
+            object-fit: cover; border: 4px solid var(--neon-blue);
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.4);
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; }
+        .gradient-text { background: linear-gradient(90deg, var(--neon-green), var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .typewriter { font-size: 1.4rem; color: #aaa; min-height: 1.6em; }
+
+        /* Global Sections */
+        .container { max-width: 1200px; margin: auto; padding: 80px 20px; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; position: relative; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--neon-green); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 24px;
+            padding: 40px; transition: 0.4s; height: 100%;
+        }
+        .glass-card:hover { border-color: var(--neon-green); transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 255, 136, 0.1); }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+        }
+        .gallery-item {
+            overflow: hidden; border-radius: 15px; height: 350px; position: relative;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(1.2); }
+
+        /* Tech & Skills */
+        .skill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: rgba(0, 255, 136, 0.1); border: 1px solid var(--neon-green); padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; }
+
+        /* Timeline / Journey */
+        .timeline { border-left: 2px solid var(--glass-border); padding-left: 30px; margin-left: 20px; }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ''; width: 16px; height: 16px; background: var(--neon-blue); border-radius: 50%; position: absolute; left: -39px; top: 5px; box-shadow: 0 0 10px var(--neon-blue); }
+
+        /* Footer */
+        footer {
+            padding: 60px 20px; border-top: 1px solid var(--glass-border); text-align: center;
+        }
+        .social-links a { color: #fff; font-size: 1.8rem; margin: 0 15px; transition: 0.3s; }
+        .social-links a:hover { color: var(--neon-blue); transform: scale(1.2); }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .profile-img { width: 160px; height: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bg-canvas"></div>
+    <nav>
+        <div class="logo">ASP.CODE</div>
+        <a href="resume.pdf" class="skill-tag" style="text-decoration: none; color: #fff;">Download CV</a>
+    </nav>
+
+    <section class="hero">
+        <div class="profile-wrapper" data-aos="zoom-in">
+            <img src="profile.jpg" alt="Abu Shaid Prodhan" class="profile-img">
+        </div>
+        <h1 data-aos="fade-up">Abu Shaid <span class="gradient-text">Prodhan</span></h1>
+        <p class="typewriter" id="typewriter-text"></p>
+        <p style="margin-top: 20px; color: #888;"><i class="fas fa-map-marker-alt"></i> Bogura, Bangladesh</p>
+    </section>
+
+    <div class="container">
+        <div class="glass-card" data-aos="fade-up" style="margin-bottom: 60px;">
+            <h2 class="section-title" style="text-align: left;">Who I Am</h2>
+            <p style="line-height: 1.8; font-size: 1.1rem; color: #ccc;">
+                I am a student, a dreamer, a traveler, and a quiet observer of life. I believe life is about understanding yourself, growing through experiences, and becoming stronger every day. 
+                <i>"I may walk quietly, but my thoughts are loud."</i>
+            </p>
+            <div class="bengali" style="margin-top: 30px; border-left: 4px solid var(--neon-green); padding-left: 20px; font-style: italic;">
+                "নিজেকে আড়ালে রাখতেই ভালো লাগে সবার থেকে। কারণ আমি বিশ্বাস করি, সবকিছু দেখাতে নেই — কিছু অনুভূতি নিজের ভেতরেই সুন্দর।"
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
+            <div class="glass-card" data-aos="fade-right">
+                <h3 style="color: var(--neon-green); margin-bottom: 15px;"><i class="fas fa-graduation-cap"></i> Academic Identity</h3>
+                <p>Building my future step by step. Education teaches me discipline, and challenges teach me strength.</p>
+            </div>
+            <div class="glass-card" data-aos="fade-left">
+                <h3 style="color: var(--neon-blue); margin-bottom: 15px;"><i class="fas fa-code"></i> The Biggest Dream</h3>
+                <p>To become a <b>Software Engineer</b>. Creating technology that makes life easier and making my parents proud.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" data-aos="fade-up">Skills & Strengths</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px;">
+            <div class="glass-card" data-aos="zoom-in">
+                <h4 style="margin-bottom: 20px;">Creative Skills</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">Nature Photography</span>
+                    <span class="skill-tag">Cinematic Videography</span>
+                    <span class="skill-tag">Travel Documentation</span>
+                    <span class="skill-tag">Creative Writing</span>
+                </div>
+            </div>
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="200">
+                <h4 style="margin-bottom: 20px;">Technical Path</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">Programming Logic</span>
+                    <span class="skill-tag">Analytical Thinking</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Software Development</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" data-aos="fade-up">World Through My Lens</h2>
+        <p style="text-align: center; margin-top: -40px; margin-bottom: 40px; color: #888;">Nature is where I feel most alive.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="fade-up"><img src="photo1.jpg" alt="Nature 1"></div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"><img src="photo2.jpg" alt="Nature 2"></div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200"><img src="photo3.jpg" alt="Nature 3"></div>
+            <div class="gallery-item" data-aos="fade-up"><img src="photo4.jpg" alt="Nature 4"></div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"><img src="photo5.jpg" alt="Nature 5"></div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200"><img src="photo6.jpg" alt="Nature 6"></div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300"><img src="photo7.jpg" alt="Nature 7"></div>
+        </div>
+
+        <div style="margin-top: 80px; text-align: center;" data-aos="zoom-in">
+            <h2 class="section-title">Personal Reflections</h2>
+            <div class="glass-card" style="background: rgba(0, 242, 255, 0.05);">
+                <p class="bengali" style="font-size: 1.2rem; line-height: 2;">
+                    "হয়তো কষ্টের আগুনে পুড়ে পুড়ে খাঁটি হওয়াটাই আমার নিয়তি।"<br>
+                    — Abu Shaid Prodhan
+                </p>
+                <div style="margin-top: 20px; color: var(--neon-blue);">
+                    <i>"Exploring the world outside, building strength inside."</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2 style="margin-bottom: 20px;">Let's Connect</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/1W7e6Hipz2/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/shaid22" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/8801577552888" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 40px; color: #555;">&copy; 2026 Abu Shaid Prodhan | Exploring. Feeling. Growing. Building.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Typewriter Effect
+        const textArray = [
+            "Nature & Travel Explorer",
+            "Deep Thinker & Writer",
+            "Future Software Engineer"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        const speed = 100;
+        const target = document.getElementById("typewriter-text");
+
+        function type() {
+            if (charIndex < textArray[textIndex].length) {
+                target.innerHTML += textArray[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, speed);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                target.innerHTML = textArray[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(type, 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", type);
+    </script>
+</body>
+</html>
+<div class="glass-card" data-aos="fade-up">
+    <h2 class="section-title" style="text-align: left;">Deep Insights</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div>
+            <h4 style="color: var(--neon-blue);"><i class="fas fa-leaf"></i> Nature's Lesson</h4>
+            <p style="font-size: 0.9rem; color: #bbb;">প্রকৃতি আমাকে ধৈর্য শিখিয়েছে। একটি গাছ যেমন রাতারাতি বড় হয় না, সফলতাও তেমনি ধীরে ধীরে আসে। আমি সেই ধীরস্থির সফলতায় বিশ্বাসী।</p>
+        </div>
+        <div>
+            <h4 style="color: var(--neon-green);"><i class="fas fa-microchip"></i> Engineering Soul</h4>
+            <p style="font-size: 0.9rem; color: #bbb;">কোডিং হলো আমার কাছে এক ধরণের কবিতা। প্রতিটি লাইন যেমন অর্থবহ হতে হয়, জীবনের প্রতিটি পদক্ষেপও তেমনি উদ্দেশ্যপূর্ণ হওয়া উচিত।</p>
+        </div>
+        <div>
+            <h4 style="color: #ff0077;"><i class="fas fa-heart"></i> Emotional Intelligence</h4>
+            <p style="font-size: 0.9rem; color: #bbb;">কাউকে কষ্ট না দেওয়া আমার শক্তি। আমি মনে করি, একজন ভালো ইঞ্জিনিয়ার হওয়ার আগে একজন ভালো মানুষ হওয়া জরুরি।</p>
+        </div>
+    </div>
+</div>
