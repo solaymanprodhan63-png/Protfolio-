@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Skills</title>
+<title>AI Assistant</title>
 </head>
 
 <body>
 
-<h1>My Skills</h1>
+<h1>AI Assistant</h1>
 
-<h2>Nature Photography</h2>
+<input id="userInput" placeholder="Ask something...">
 
-<p>
-আমি প্রকৃতির ছবি তুলতে ভালোবাসি।
-সূর্যাস্ত, নদী, গাছপালা এবং খোলা আকাশ আমাকে অনুপ্রাণিত করে।
-</p>
+<button onclick="reply()">Send</button>
 
-<h2>Creative Writing</h2>
+<p id="response"></p>
 
-<p>
-লেখা আমার কাছে অনুভূতি প্রকাশের একটি মাধ্যম।
-অনেক সময় আমি আমার চিন্তা ও অনুভূতি লেখার মাধ্যমে প্রকাশ করি।
-</p>
+<script>
 
-<h2>Web Development Learning</h2>
+function reply(){
 
-<p>
-আমি ধীরে ধীরে HTML এবং Web Development শিখছি।
-আমি নিজের Portfolio Website তৈরি করে শেখার চেষ্টা করছি।
-</p>
+let input=document.getElementById("userInput").value.toLowerCase();
 
-<h2>Personal Strengths</h2>
+let response="";
 
-<ul>
+if(input.includes("name")){
 
-<li>Deep Thinking</li>
-<li>Emotional Awareness</li>
-<li>Self Control</li>
-<li>Creative Mindset</li>
+response="My name is Abu Shaid Prodhan.";
 
-</ul>
+}
+
+else if(input.includes("dream")){
+
+response="My dream is to become a Software Engineer.";
+
+}
+
+else if(input.includes("photo")){
+
+response="I love nature photography.";
+
+}
+
+else{
+
+response="Sorry, I don't understand.";
+
+}
+
+document.getElementById("response").innerText=response;
+
+}
+
+</script>
 
 </body>
 </html>
