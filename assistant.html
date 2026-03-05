@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Assistant</title>
+</head>
+
+<body>
+
+<h1>AI Assistant</h1>
+
+<input id="userInput" placeholder="Ask something...">
+
+<button onclick="reply()">Send</button>
+
+<p id="response"></p>
+
+<script>
+
+function reply(){
+
+let input=document.getElementById("userInput").value.toLowerCase();
+
+let response="";
+
+if(input.includes("name")){
+
+response="My name is Abu Shaid Prodhan.";
+
+}
+
+else if(input.includes("dream")){
+
+response="My dream is to become a Software Engineer.";
+
+}
+
+else if(input.includes("photo")){
+
+response="I love nature photography.";
+
+}
+
+else{
+
+response="Sorry, I don't understand.";
+
+}
+
+document.getElementById("response").innerText=response;
+
+}
+
+</script>
+
+</body>
+</html>
