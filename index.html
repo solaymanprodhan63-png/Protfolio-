@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abu Shaid Prodhan</title>
+
+<style>
+
+body{
+font-family:Poppins;
+background:black;
+color:white;
+margin:0;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:sticky;
+top:0;
+background:#111;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:#00f2ff;
+margin:10px;
+text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:120px 20px;
+}
+
+.profile{
+width:170px;
+border-radius:50%;
+border:4px solid #00f2ff;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.lightbox img{
+max-width:90%;
+}
+
+/* STARS */
+
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+animation:move 10s linear infinite;
+}
+
+@keyframes move{
+from{transform:translateY(0)}
+to{transform:translateY(100vh)}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="skills.html">Skills</a>
+<a href="story.html">Story</a>
+<a href="assistant.html">AI</a>
+
+</nav>
+
+<section class="hero">
+
+<img src="profile.jpg" class="profile">
+
+<h1>Abu Shaid Prodhan</h1>
+
+<p>
+Student | Nature Explorer | Writer | Future Software Engineer
+</p>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center">Nature Photography</h2>
+
+<div class="gallery">
+
+<img src="photo1.jpg" loading="lazy">
+<img src="photo2.jpg" loading="lazy">
+<img src="photo3.jpg" loading="lazy">
+<img src="photo4.jpg" loading="lazy">
+<img src="photo5.jpg" loading="lazy">
+<img src="photo6.jpg" loading="lazy">
+<img src="photo7.jpg" loading="lazy">
+
+</div>
+
+</section>
+
+<div class="lightbox" id="lightbox">
+<img src="">
+</div>
+
+<script>
+
+/* LIGHTBOX */
+
+const images=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=lightbox.querySelector("img");
+
+images.forEach(img=>{
+img.onclick=()=>{
+lightbox.style.display="flex";
+lightboxImg.src=img.src;
+};
+});
+
+lightbox.onclick=()=>{
+lightbox.style.display="none";
+}
+
+/* STARS */
+
+for(let i=0;i<100;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+star.style.animationDuration=(Math.random()*5+5)+"s";
+
+document.body.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
